@@ -5,8 +5,8 @@ searchBtn.addEventListener("click", async function(req,res){
         let countryName = countryInp.value;
         let finalURL =    `https://restcountries.com/v3.1/name/${countryName}?fullText=true`;
         console.log(finalURL)
-       let response = await fetch(finalURL);
-        response.json().then((data)=>{
+       fetch(finalURL).then((response)=>response.json())
+        .then((data)=>{
             result.innerHTML =  `
             <img src="${data[0].flags.svg}" class="flag-img">
             <h2>${data[0].name.common}</h2>
